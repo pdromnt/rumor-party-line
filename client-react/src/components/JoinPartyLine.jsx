@@ -4,7 +4,6 @@ import { getServer } from "../helpers/getServer.js";
 import { connectEventSource, disconnectCurrentPartyLine } from "../services/partyLineSocketService.js";
 
 const JoinPartyLine = () => {
-
   const partyLine = usePartyLine((state) => state.partyLine);
   const partyLineDeleteFlag = usePartyLine((state) => state.partyLineDeletedFlag);
   const eventSource = usePartyLine((state) => state.eventSource);
