@@ -5,7 +5,7 @@ const fetchPartyLines = async () => {
   fetch(getServer() + '/partyLines')
     .then(response => response.json())
     .then(data => {
-      usePartyLine.getState().partyLines = data;
+      usePartyLine.setState({partyLines: data});
     })
     .catch(error => {
       console.error('Error fetching party lines:', error);
