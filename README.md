@@ -11,7 +11,7 @@
   - Cors
   
 
-- Client
+- Client (Note: Client is currently being rewritten in React)
   - Vue3 (+ Vite, Pinia)
   - Tailwind
   - DaisyUI
