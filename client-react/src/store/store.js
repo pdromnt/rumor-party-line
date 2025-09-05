@@ -4,7 +4,7 @@ const usePartyLine = create(() => ({
   partyLines: [],
   partyLine: '',
   rumor: '',
-  eventSource: null,
+  eventSource: undefined,
   partyLineDeletedFlag: false,
 }));
 

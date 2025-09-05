@@ -16,7 +16,7 @@ const connectEventSource = async (currentPartyLine) => {
   }
 
   console.log(`Connecting to party line: ${currentPartyLine}`);
-  usePartyLine.getState().eventSource = new EventSource(`${getServer()}/connectPartyLine?partyLine=${encodeURIComponent(currentPartyLine)}`);
+  usePartyLine.setState({eventSource: new EventSource(`${getServer()}/connectPartyLine?partyLine=${encodeURIComponent(currentPartyLine)}`)});
 
   usePartyLine.getState().eventSource.addEventListener('open', () => {
     console.log('Connected to party line:', currentPartyLine);
@@ -25,16 +25,16 @@ const connectEventSource = async (currentPartyLine) => {
   usePartyLine.getState().eventSource.addEventListener('message', (event) => {
     console.log('Rumor received:', event.data);
     if (event.data.toString() !== usePartyLine.getState().rumor) {
-      play();
+      // play();
     }
-    usePartyLine.getState().rumor = event.data;
+    usePartyLine.setState({rumor: event.data});
   });
 
   usePartyLine.getState().eventSource.addEventListener('error', (err) => {
     console.error('EventSource error:', err);
     if (usePartyLine.getState().rumor.includes('PARTY_LINE_DELETED')) {
       disconnectCurrentPartyLine();
-      usePartyLine.getState().partyLineDeletedFlag = true;
+      usePartyLine.setState({partyLineDeletedFlag: true});
     } else {
       usePartyLine.getState().eventSource.close();
       setTimeout(() => connectEventSource(currentPartyLine), 5000); // Attempt reconnection after 5 seconds
@@ -46,9 +46,9 @@ const disconnectCurrentPartyLine = async () => {
   if (usePartyLine.getState().eventSource) {
     console.log(`Disconnecting from party line: ${usePartyLine.getState().partyLine}`);
     usePartyLine.getState().eventSource.close();
-    usePartyLine.getState().eventSource = null;
-    usePartyLine.getState().partyLine = '';
-    usePartyLine.getState().rumor = '';
+    usePartyLine.setState({eventSource: undefined});
+    usePartyLine.setState({partyLine: ''});
+    usePartyLine.setState({rumor: ''});
     console.log('Disconnected successfully');
   } else {
     console.log('No active connection to disconnect');
