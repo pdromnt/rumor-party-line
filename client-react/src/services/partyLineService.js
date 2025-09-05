@@ -1,14 +1,11 @@
 import { getServer } from "../helpers/getServer.js";
-
-// This should be in a store. Same one as the one in the SocketService.
-let partyLines;
+import usePartyLine from "../store/store.js";
 
 const fetchPartyLines = async () => {
   fetch(getServer() + '/partyLines')
     .then(response => response.json())
     .then(data => {
-      partyLines = data;
-      // Assign this to Store
+      usePartyLine.getState().partyLines = data;
     })
     .catch(error => {
       console.error('Error fetching party lines:', error);
