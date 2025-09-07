@@ -22,11 +22,11 @@ const JoinPartyLine = () => {
     if (!eventSource?.readyState) {
       setError('Party Line has been deleted by the admin!');
     }
-  }, [eventSource?.readyState, partyLineDeleteFlag]);
+  }, [eventSource?.readyState]);
 
   useEffect(() => {
     setPartyLineName(partyLineName ? partyLineName : partyLine);
-  }, [partyLine, partyLineName])
+  }, [partyLine])
 
   const joinPartyLine = async () => {
     if (partyLineName.trim()) {
