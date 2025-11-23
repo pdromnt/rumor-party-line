@@ -13,14 +13,15 @@ const StatusPartyLine = () => {
 
   return (
     <div className="card bg-base-200 p-4 rounded-box w-full">
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold">PartyLines</h3>
         <button className="btn btn-outline btn-info" onClick={() => { fetchPartyLines() }}>Refresh List</button>
       </div>
 
-      <div className="flex flex-col gap-3">
-        {partyLines.map((partyLine) => (
-          <div className="collapse bg-base-100" key={partyLine.lastEvent}>
+      {partyLines && partyLines.length > 0 ? (
+        <div className="flex flex-col gap-3 mt-4">
+          {partyLines.map((partyLine) => (
+          <div className="collapse bg-base-100" key={partyLine.name}>
             <input type="checkbox" />
             <div className="collapse-title text-lg font-medium">{partyLine.name}</div>
             <div className="collapse-content">
@@ -44,8 +45,9 @@ const StatusPartyLine = () => {
               </div>
             </div>
           </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   )
 }

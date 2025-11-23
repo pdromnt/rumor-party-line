@@ -11,7 +11,7 @@ const Navbar = () => {
             <small>
               Created by pdromnt <br />
               Licensed under the MIT License <br />
-              <a href="https://github.com/pdromnt/rumor-party-line">
+              <a target="_blank" href="https://github.com/pdromnt/rumor-party-line">
                 <u>GitHub</u>
               </a>
             </small>

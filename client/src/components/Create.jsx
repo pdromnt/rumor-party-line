@@ -29,7 +29,7 @@ const CreatePartyLine = () => {
                className="input input-bordered w-full max-w"/>
         <button className="btn btn-outline btn-success" onClick={createNewPartyLine}>Create PartyLine</button>
       </div>
-      {status ? <p className="mt-2">{status}</p> : null}
+      {status ? <p className="text-center mt-2">{status}</p> : null}
     </div>
   )
 }
