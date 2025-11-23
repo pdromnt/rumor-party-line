@@ -12,11 +12,12 @@
   
 
 - Client (Note: Client is currently being rewritten in React)
-  - Vue3 (+ Vite, Pinia)
+  - React (+ Vite)
+  - Zustand
+  - React Router
   - Tailwind
   - DaisyUI
   - ESLint
-  - Prettier
 
 # License
 MIT 
@@ -28,8 +29,9 @@ This was a single weekend project and I wouldn't recommend using this for anythi
 If you REALLY want to do this for some reason:
 
 - Clone the repo
+- Check the `.env` files of both server and client for more guidance on how to run each separate.
 - Run `npm install` in both the client and server directories (you obviously need Node.js installed)
-- Run `npm start` in the client directory
+- Run `npm run dev` in the client directory
 - Run `npm start` in the server directory (you need both client and server running in different terminals, duh)
 - Have fun I guess?
 
