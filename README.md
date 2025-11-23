@@ -11,7 +11,7 @@
   - Cors
   
 
-- Client (Note: Client is currently being rewritten in React)
+- Client
   - React (+ Vite)
   - Zustand
   - React Router
