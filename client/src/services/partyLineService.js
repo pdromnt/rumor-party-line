@@ -49,6 +49,7 @@ const deletePartyLine = async (partyLine) => {
     .then(response => {
       if (response.ok) {
         console.log(`Deleted PartyLine: ${partyLine}`);
+        alert(`Deleted PartyLine: ${partyLine}`);
         return fetchPartyLines(); // Refresh the PartyLines after deletion
       } else {
         console.error('Failed to delete PartyLine');
