@@ -71,7 +71,7 @@ const Join = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-4">
         <input type="text" onInput={e => setPartyLineName(e.target.value)} value={partyLineName}
           placeholder="Enter PartyLine"
-          className="input input-bordered flex-1 min-w-0 max-w-md" />
+          className="input input-bordered flex md:flex-1 min-w-0 max-w-md" />
         <button className="btn btn-outline btn-success shrink-0" onClick={joinPartyLine}>Join PartyLine</button>
       </div>
       {(status || partyLineDeleteFlag) && (

@@ -44,17 +44,17 @@ const SendRumor = () => {
   return (
     <div className="card bg-base-200 p-4 rounded-box w-full">
       <div className="flex flex-col md:flex-row items-center gap-4 flex-wrap">
-        <input type="text" className="input input-bordered flex-1 min-w-0" value={partyLine}
+        <input type="text" className="input input-bordered flex md:flex-1 min-w-0" value={partyLine}
                onChange={e => { setPartyLineName(e.target.value) }}
                placeholder="Enter PartyLine name"/>
-        <input type="text" className="input input-bordered flex-1 min-w-0" value={rumor}
+        <input type="text" className="input input-bordered flex md:flex-1 min-w-0" value={rumor}
                onChange={event => { setRumor(event.target.value) }}
                placeholder="Enter a rumor"/>
         <div className="flex items-center shrink-0">
           <button className="btn btn-outline btn-success" onClick={spreadRumor}>Spread Rumor</button>
         </div>
       </div>
-      { rumorHasSpread ? <div className="mt-2">{rumorHasSpread}</div> : null}
+      { rumorHasSpread ? <div className="mt-2 text-center">{rumorHasSpread}</div> : null}
     </div>
   )
 }
