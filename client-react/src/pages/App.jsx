@@ -1,14 +1,18 @@
 import Navbar from "../components/NavBar.jsx";
-import ViewPartyLine from "../components/ViewPartyLine.jsx";
-import JoinPartyLine from "../components/JoinPartyLine.jsx";
+import ViewPartyLine from "../components/View.jsx";
+import JoinPartyLine from "../components/Join.jsx";
 
 
 const App = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-base-100">
       <Navbar/>
-      <JoinPartyLine/>
-      <ViewPartyLine/>
+      <main className="max-w-4xl mx-auto px-4 pt-20 pb-6">
+        <div className="flex flex-col gap-6">
+          <JoinPartyLine/>
+          <ViewPartyLine/>
+        </div>
+      </main>
     </div>
   )
 }

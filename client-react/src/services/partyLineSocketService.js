@@ -7,19 +7,19 @@ import usePartyLine from "../store/store.js";
 
 const connectEventSource = async (currentPartyLine) => {
   if (usePartyLine.getState().eventSource && usePartyLine.getState().partyLine === currentPartyLine) {
-    console.log(`Already connected to the party line: ${currentPartyLine}`);
+    console.log(`Already connected to the PartyLine: ${currentPartyLine}`);
     return;
   }
 
   if (usePartyLine.getState().eventSource) {
-    await disconnectCurrentPartyLine(); // Ensure we disconnect from previous party line, if any
+    await disconnectCurrentPartyLine(); // Ensure we disconnect from previous PartyLine, if any
   }
 
-  console.log(`Connecting to party line: ${currentPartyLine}`);
+  console.log(`Connecting to PartyLine: ${currentPartyLine}`);
   usePartyLine.setState({eventSource: new EventSource(`${getServer()}/connectPartyLine?partyLine=${encodeURIComponent(currentPartyLine)}`)});
 
   usePartyLine.getState().eventSource.addEventListener('open', () => {
-    console.log('Connected to party line:', currentPartyLine);
+    console.log('Connected to PartyLine:', currentPartyLine);
   });
 
   usePartyLine.getState().eventSource.addEventListener('message', (event) => {
@@ -44,7 +44,7 @@ const connectEventSource = async (currentPartyLine) => {
 
 const disconnectCurrentPartyLine = async () => {
   if (usePartyLine.getState().eventSource) {
-    console.log(`Disconnecting from party line: ${usePartyLine.getState().partyLine}`);
+    console.log(`Disconnecting from PartyLine: ${usePartyLine.getState().partyLine}`);
     usePartyLine.getState().eventSource.close();
     usePartyLine.setState({eventSource: undefined});
     usePartyLine.setState({partyLine: ''});

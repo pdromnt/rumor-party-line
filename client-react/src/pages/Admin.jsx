@@ -1,15 +1,19 @@
 import Navbar from "../components/NavBar.jsx";
-import CreatePartyLine from "../components/CreatePartyLine.jsx";
+import CreatePartyLine from "../components/Create.jsx";
 import SendRumor from "../components/SendRumor.jsx";
-import DeletePartyLine from "../components/DeletePartyLine.jsx";
+import StatusPartyLine from "../components/Status.jsx";
 
 const Admin = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-base-100">
       <Navbar/>
-      <CreatePartyLine/>
-      <SendRumor/>
-      <DeletePartyLine/>
+      <main className="max-w-4xl mx-auto px-4 pt-20 pb-6">
+        <div className="flex flex-col gap-6">
+          <CreatePartyLine/>
+          <SendRumor/>
+          <StatusPartyLine/>
+        </div>
+      </main>
     </div>
   )
 }

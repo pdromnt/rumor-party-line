@@ -8,7 +8,7 @@ const fetchPartyLines = async () => {
       usePartyLine.setState({partyLines: data});
     })
     .catch(error => {
-      console.error('Error fetching party lines:', error);
+      console.error('Error fetching PartyLines:', error);
     });
 };
 
@@ -24,7 +24,7 @@ const createPartyLine = async (partyLine) => {
       if (response.ok) {
         await fetchPartyLines();
       } else {
-        console.error('Failed to create party line');
+        console.error('Failed to create PartyLine');
       }
 
       return response.json();
@@ -33,7 +33,7 @@ const createPartyLine = async (partyLine) => {
       return data;
     })
     .catch(error => {
-      console.error('Error creating party line:', error);
+      console.error('Error creating PartyLine:', error);
       throw error;
     });
 };
@@ -48,14 +48,14 @@ const deletePartyLine = async (partyLine) => {
   })
     .then(response => {
       if (response.ok) {
-        console.log(`Deleted party line: ${partyLine}`);
-        return fetchPartyLines(); // Refresh the party lines after deletion
+        console.log(`Deleted PartyLine: ${partyLine}`);
+        return fetchPartyLines(); // Refresh the PartyLines after deletion
       } else {
-        console.error('Failed to delete party line');
+        console.error('Failed to delete PartyLine');
       }
     })
     .catch(error => {
-      console.error('Error deleting party line:', error);
+      console.error('Error deleting PartyLine:', error);
     });
 };
 

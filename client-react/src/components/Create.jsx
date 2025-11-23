@@ -23,11 +23,13 @@ const CreatePartyLine = () => {
   }
 
   return (
-    <div>
-      <input type="text" value={partyLineName} onChange={e => {setPartyLineName(e.target.value)}} placeholder="Enter name"
-             className="input input-bordered w-full max-w-xs"/>
-      <button className="btn btn-outline btn-success" onClick={createNewPartyLine}>Create Party Line</button>
-      {status ? <p>{status}</p> : null}
+    <div className="card bg-base-200 p-4 rounded-box w-full">
+      <div className="flex flex-col md:flex-row items-center gap-4">
+        <input type="text" value={partyLineName} onChange={e => {setPartyLineName(e.target.value)}} placeholder="Enter a name"
+               className="input input-bordered w-full max-w"/>
+        <button className="btn btn-outline btn-success" onClick={createNewPartyLine}>Create PartyLine</button>
+      </div>
+      {status ? <p className="mt-2">{status}</p> : null}
     </div>
   )
 }
