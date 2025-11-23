@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createPartyLine } from "../services/partyLineService.js";
 
-const CreatePartyLine = () => {
+const Create = () => {
 
   const [partyLineName, setPartyLineName] = useState('');
   const [status, setStatus] = useState('');
@@ -34,4 +34,4 @@ const CreatePartyLine = () => {
   )
 }
 
-export default CreatePartyLine;
+export default Create;

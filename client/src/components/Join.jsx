@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getServer } from "../helpers/getServer.js";
 import { connectEventSource, disconnectCurrentPartyLine } from "../services/partyLineSocketService.js";
 
-const JoinPartyLine = () => {
+const Join = () => {
   const partyLine = usePartyLine((state) => state.partyLine);
   const partyLineDeleteFlag = usePartyLine((state) => state.partyLineDeletedFlag);
   const eventSource = usePartyLine((state) => state.eventSource);
@@ -84,4 +84,4 @@ const JoinPartyLine = () => {
   )
 }
 
-export default JoinPartyLine;
+export default Join;

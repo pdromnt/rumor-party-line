@@ -2,7 +2,7 @@ import { Fragment, useEffect } from "react";
 import { fetchPartyLines, deletePartyLine } from "../services/partyLineService.js";
 import usePartyLine from "../store/store.js";
 
-const StatusPartyLine = () => {
+const Status = () => {
   const partyLines = usePartyLine((state) => state.partyLines);
 
   useEffect(() => {
@@ -52,4 +52,4 @@ const StatusPartyLine = () => {
   )
 }
 
-export default StatusPartyLine;
+export default Status;

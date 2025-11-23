@@ -1,6 +1,6 @@
 import usePartyLine from "../store/store.js";
 
-const ViewPartyLine = () => {
+const View = () => {
   const partyLine = usePartyLine((state) => state.partyLine);
   const rumor = usePartyLine((state) => state.rumor);
 
@@ -13,4 +13,4 @@ const ViewPartyLine = () => {
   )
 }
 
-export default ViewPartyLine
+export default View
