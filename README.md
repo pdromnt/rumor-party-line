@@ -23,7 +23,7 @@
 MIT 
 
 # Notes
-This was a single weekend project and I wouldn't recommend using this for anything more than a few games between friends. Despite my best attempts, I'm sure there are still some security concerns that I haven't thought of. And the client despite simple, isn't that optimized and could use some cleaning up. (Also yes, I know there's long files that could be broken up. I don't care. I wasn't thinking about architecture when I made this. I was thinking about getting it done in a weekend.)
+This was a single weekend project and I wouldn't recommend using this for anything more than a few games between friends. Despite my best attempts, I'm sure there are still some security concerns that I haven't thought of. 
 
 # How To
 If you REALLY want to do this for some reason:
