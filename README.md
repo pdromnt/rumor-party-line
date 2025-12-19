@@ -23,7 +23,7 @@
 MIT 
 
 # Notes
-This was a single weekend project and I wouldn't recommend using this for anything more than a few games between friends. Despite my best attempts, I'm sure there are still some security concerns that I haven't thought of. And the client despite simple, isn't that optimized and could use some cleaning up. (Also yes, I know there's long files that could be broken up. I don't care. I wasn't thinking about architecture when I made this. I was thinking about getting it done in a weekend.)
+This was a single weekend project and I wouldn't recommend using this for anything more than a few games between friends. Despite my best attempts, I'm sure there are still some security concerns that I haven't thought of. 
 
 # How To
 If you REALLY want to do this for some reason:
@@ -40,10 +40,7 @@ Also, you can change some small settings in the `.env` file in the server direct
 Oh, you want to know how to run this in a server on the open internet? Figure it out. I'm not going to help you with that. I'm not responsible for any security issues that arise from you doing that.
 
 # Contributing
-I'm not going to maintain this project. I'm not going to accept pull requests. I'm not going to respond to issues. I'm not going to respond to emails. I'm not going to care if you get hacked for running this on the public internet.
-
-# Contact
-Please don't.
+I'm not going to accept pull requests. I'm not going to respond to issues. I'm not going to care if you get hacked for running this on the public internet.
 
 # Why?
 I was bored and wanted to make something inspired by something Microsoft put on one of the betas of Windows 95, an app named Party Line/Rumor that later became WinPopUp. Basically it was like a sort of game that allowed users to jokingly start rumors in the LAN by encapsulating and using commands like NETSEND within an neat UI. This would be the modern day equivalent but using Server Sent Events.
