@@ -8,4 +8,9 @@ router.get('/admin', (_req: Request, res: Response) => {
   res.sendFile(path.resolve(__dirname, '../../static', 'index.html'));
 });
 
+// Catch-all route for client-side routing (React Router)
+router.get('/{*splat}', (_req: Request, res: Response) => {
+  res.sendFile(path.resolve(__dirname, '../../static', 'index.html'));
+});
+
 export default router;

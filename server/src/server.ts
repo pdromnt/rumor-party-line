@@ -50,9 +50,10 @@ if (ENVIRONMENT === 'production') {
     helmet.contentSecurityPolicy({
       useDefaults: true,
       directives: {
-        'script-src': ['\'self\''],
-        'img-src': ['\'self\'', 'data:'],
-        'connect-src': ['\'self\'']
+        'script-src': ['\'self\'', '\'unsafe-inline\'', '\'unsafe-eval\''],
+        'img-src': ['\'self\'', 'data:', 'blob:'],
+        'connect-src': ['\'self\'', 'wss:', 'https:'],
+        'default-src': ['\'self\'']
       }
     })
   );
@@ -65,10 +66,10 @@ if (ENVIRONMENT === 'production') {
   );
 }
 
-// Routes
-app.use(navigationRoutes);
+// Routes - API routes first, then navigation (catch-all must be last)
 app.use(managementRoutes);
 app.use(connectionRoutes);
+app.use(navigationRoutes);
 
 // Periodically run the maintenance service
 // Which is: Resend the last rumor and clean up inactive party lines
