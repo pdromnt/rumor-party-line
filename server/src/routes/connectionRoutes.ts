@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { query, validationResult } from 'express-validator';
 import { partyLines } from '../stores/dataStore';
 import { v4 as uuidv4 } from 'uuid';
@@ -9,16 +9,18 @@ const router = Router();
 // Route to verify if a party line exists before connecting
 router.get('/joinPartyLine', [
   query('partyLine').isString().trim().escape().notEmpty().withMessage('Invalid party line name')
-], (req: any, res: any) => {
+], (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    res.status(400).json({ errors: errors.array() });
+    return;
   }
   try {
-    const currentPartyLine = req.query.partyLine;
+    const currentPartyLine = req.query.partyLine as string;
     const partyLine = partyLines[currentPartyLine];
     if (!partyLine) {
-      return res.status(404).send({ status: 'Party line not found' });
+      res.status(404).send({ status: 'Party line not found' });
+      return;
     }
     res.status(200).send({ status: 'Connection to party line authorized' });
   } catch (error) {
@@ -30,16 +32,18 @@ router.get('/joinPartyLine', [
 // Route to connect to party line and receive rumors
 router.get('/connectPartyLine', [
   query('partyLine').isString().trim().escape().notEmpty().withMessage('Invalid party line name')
-], (req: any, res: any) => {
+], (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
+    res.status(400).json({ errors: errors.array() });
+    return;
   }
   try {
-    const connectedPartyLine = req.query.partyLine;
+    const connectedPartyLine = req.query.partyLine as string;
     const partyLine = partyLines[connectedPartyLine];
     if (!partyLine) {
-      return res.status(404).send({ status: 'Party line not found' });
+      res.status(404).send({ status: 'Party line not found' });
+      return;
     }
 
     // Set headers for Server-Sent Events (SSE)
@@ -67,7 +71,7 @@ router.get('/connectPartyLine', [
     // Function to remove the client from the party line
     const removeClient = () => {
       clearInterval(keepAliveId);
-      const index = partyLine.clients.findIndex((client: any) => client.clientId === clientId);
+      const index = partyLine.clients.findIndex((client) => client.clientId === clientId);
       if (index !== -1) {
         partyLine.clients.splice(index, 1);
         console.log(`REMOVE: { partyLine: ${connectedPartyLine}, clientId: ${clientId} }`);
@@ -85,7 +89,7 @@ router.get('/connectPartyLine', [
 
     // Handle client disconnection
     req.on('close', removeClient);
-    req.on('error', (err: any) => {
+    req.on('error', (err: Error) => {
       console.error(`ERROR: Error in client connection in party line ${connectedPartyLine}:`, err);
       removeClient();
     });

@@ -51,7 +51,7 @@ const SendRumor = () => {
                onChange={event => { setRumor(event.target.value) }}
                placeholder="Enter a rumor"/>
         <div className="flex items-center shrink-0">
-          <button className="btn btn-outline btn-success" onClick={spreadRumor}>Spread Rumor</button>
+          <button type="button" className="btn btn-outline btn-success" onClick={spreadRumor}>Spread Rumor</button>
         </div>
       </div>
       { rumorHasSpread ? <div className="mt-2 text-center">{rumorHasSpread}</div> : null}

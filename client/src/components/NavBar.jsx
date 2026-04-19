@@ -18,7 +18,7 @@ const Navbar = () => {
           </p>
           <div className="modal-action">
             <form method="dialog">
-              <button className="btn">Close</button>
+              <button type="button" className="btn">Close</button>
             </form>
           </div>
         </div>
@@ -31,9 +31,9 @@ const Navbar = () => {
         <div className="flex flex-1 justify-end px-2">
           <div className="flex items-stretch">
             <div className="dropdown dropdown-end">
-              <div tabIndex="0" role="button" className="btn btn-ghost rounded-btn">Menu</div>
+              <div tabIndex={0} role="button" className="btn btn-ghost rounded-btn">Menu</div>
               <ul
-                tabIndex="0"
+                tabIndex={0}
                 className="menu dropdown-content bg-base-300 rounded-box z-50 mt-4 w-52 p-2 shadow">
                 <li>
                   <NavLink to="/">Home</NavLink>
@@ -43,7 +43,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <a className="btn btn-ghost rounded-btn" onClick={() => document.getElementById('aboutDialog').showModal()}>About</a>
+            <button type="button" className="btn btn-ghost rounded-btn" onClick={() => document.getElementById('aboutDialog').showModal()}>About</button>
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ const Create = () => {
       <div className="flex flex-col md:flex-row items-center gap-4">
         <input type="text" value={partyLineName} onChange={e => {setPartyLineName(e.target.value)}} placeholder="Enter a name"
                className="input input-bordered w-full max-w"/>
-        <button className="btn btn-outline btn-success" onClick={createNewPartyLine}>Create PartyLine</button>
+        <button type="button" className="btn btn-outline btn-success" onClick={createNewPartyLine}>Create PartyLine</button>
       </div>
       {status ? <p className="text-center mt-2">{status}</p> : null}
     </div>

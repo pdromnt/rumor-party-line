@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -32,7 +32,6 @@ const limiter = rateLimit({
 // Middleware setup
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
-app.use(helmet());
 app.use(limiter);
 
 // Serve the client's static files
@@ -40,7 +39,7 @@ app.use('/', express.static(path.join(__dirname, '../static')));
 
 // Force HTTPS redirection and CSP in production
 if (ENVIRONMENT === 'production') {
-  app.use((req: any, res: any, next: any) => {
+  app.use((req: Request, res: Response, next: NextFunction) => {
     if (req.headers['x-forwarded-proto'] !== 'https') {
       return res.redirect(`https://${req.headers.host}${req.url}`);
     }

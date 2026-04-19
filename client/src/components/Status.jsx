@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import { fetchPartyLines, deletePartyLine } from "../services/partyLineService.js";
 import usePartyLine from "../store/store.js";
 
@@ -15,7 +15,7 @@ const Status = () => {
     <div className="card bg-base-200 p-4 rounded-box w-full">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold">PartyLines</h3>
-        <button className="btn btn-outline btn-info" onClick={() => { fetchPartyLines() }}>Refresh List</button>
+        <button type="button" className="btn btn-outline btn-info" onClick={() => { fetchPartyLines() }}>Refresh List</button>
       </div>
 
       {partyLines && partyLines.length > 0 ? (
@@ -39,7 +39,7 @@ const Status = () => {
                 </ul>
               </div>
               <div className="mt-3">
-                <button className="btn btn-outline btn-error" onClick={() => { deletePartyLine(partyLine.name) }}>
+                <button type="button" className="btn btn-outline btn-error" onClick={() => { deletePartyLine(partyLine.name) }}>
                   Delete PartyLine
                 </button>
               </div>

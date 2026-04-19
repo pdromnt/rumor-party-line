@@ -22,7 +22,7 @@ const Join = () => {
     if (!eventSource?.readyState) {
       setError('PartyLine has been deleted by the admin!');
     }
-  }, [eventSource?.readyState]);
+  }, [eventSource?.readyState, eventSource]);
 
   useEffect(() => {
     setPartyLineName(partyLineName ? partyLineName : partyLine);
@@ -72,7 +72,7 @@ const Join = () => {
         <input type="text" onInput={e => setPartyLineName(e.target.value)} value={partyLineName}
           placeholder="Enter PartyLine"
           className="input input-bordered flex md:flex-1 min-w-0 max-w-md" />
-        <button className="btn btn-outline btn-success shrink-0" onClick={joinPartyLine}>Join PartyLine</button>
+        <button type="button" className="btn btn-outline btn-success shrink-0" onClick={joinPartyLine}>Join PartyLine</button>
       </div>
       {(status || partyLineDeleteFlag) && (
         <div className="mt-2 text-center">
